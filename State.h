@@ -20,7 +20,13 @@ class Halted: public State {
   State* getNextState();
 };
 
-class Scan: public State {
+class Scanning: public State {
+  public:
+  void process();
+  State* getNextState();
+};
+
+class Retreat: public State {
   public:
   void process();
   State* getNextState();

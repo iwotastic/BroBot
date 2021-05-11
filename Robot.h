@@ -8,6 +8,7 @@ class Robot {
   static Robot* current();
 
   Pushbutton zumoButton {ZUMO_BUTTON};
+  ZumoMotors motors;
 
   private:
   static Robot* singleton;
