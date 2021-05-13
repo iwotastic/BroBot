@@ -7,3 +7,7 @@
 // Constants for right ultrasonic sensor
 #define RIGHT_ECHO 11
 #define RIGHT_TRIG 6
+
+// Constants for line detector
+#define LS_THESHOLD 1500
+#define LS_NUM_SENSORS 6

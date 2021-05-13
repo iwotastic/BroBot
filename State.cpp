@@ -11,10 +11,28 @@ State* Halted::getNextState() {
 }
 
 void Scanning::process() {
-  
+  // Turn *ever* so slowly...
+  Robot::current()->motors.setSpeeds(200, -200);
 }
 
 State* Scanning::getNextState() {
+  if (Robot::current()->safeLeftDist * 0.8 > Robot::current()->getLeftDist() && Robot::current()->safeRightDist * 0.8 > Robot::current()->getRightDist()) {
+    Serial.println("Attack");
+  }
+  return nullptr;
+}
+
+void Attack::process() {
+  // To quote Jeremy Clarkson, "POWAAAAaaah!!!"
+  Robot::current()->motors.setSpeeds(400, 400);
+}
+
+State* Attack::getNextState() {
+  // To decide when to attack, we use the built-in line detecting sensor array. It measures light based on pulse time: the lesser the pulse, the brighter the surface.
+  
+  if (true) {
+    Serial.println("Attack");
+  }
   return nullptr;
 }
 

@@ -2,7 +2,8 @@
 
 #include "./Robot.h"
 
-// Base state class, used in other states.
+// Base state class, used in other states. States represent self-contained actions the robot can take. Ironically, they should be
+// as state-less as possible.
 class State {
   public:
   State() = default;
@@ -21,6 +22,12 @@ class Halted: public State {
 };
 
 class Scanning: public State {
+  public:
+  void process();
+  State* getNextState();
+};
+
+class Attack: public State {
   public:
   void process();
   State* getNextState();
