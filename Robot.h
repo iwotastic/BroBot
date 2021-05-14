@@ -9,20 +9,20 @@ class Robot {
   public:
   static Robot* current();
 
+  unsigned char lsPinsUsed[2] = {4, 5};
+
   Pushbutton zumoButton {ZUMO_BUTTON};
   ZumoMotors motors;
-  ZumoReflectanceSensorArray lineSensors {ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN, LS_NUM_SENSORS};
+  ZumoReflectanceSensorArray lineSensors = ZumoReflectanceSensorArray(lsPinsUsed, LS_NUM_SENSORS, 2000, ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN);
 
-  float getLeftDist();
   float getRightDist();
 
   void recalibrate();
 
-  float safeLeftDist;
   float safeRightDist;
 
   unsigned int lineValues[LS_NUM_SENSORS];
-  unsigned int* getLineArray();
+  unsigned int* getLineValues();
 
   private:
   static Robot* singleton;

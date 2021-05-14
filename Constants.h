@@ -9,5 +9,5 @@
 #define RIGHT_TRIG 6
 
 // Constants for line detector
-#define LS_THESHOLD 1500
-#define LS_NUM_SENSORS 6
+#define LS_THRESHOLD 1000
+#define LS_NUM_SENSORS 2
